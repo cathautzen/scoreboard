@@ -1,0 +1,58 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$link-decoration: none;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+$custom-colors: (
+	"farve": $cyan-400,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "bootstrapComponents";
+
+// 5. Du kan lave styling her...
+
+.container{
+	max-width: 500px;
+	margin:0 auto;
+}
+
+dialog {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 20px);
+	max-width: 400px;
+	border: none;
+	border-radius: 5px;
+}
+
+.dialog-button-group button {
+	color: $light;
+	border: none;
+	padding: 10px 30px;
+	border-radius: 5px;
+}
+
+.dialog-button-group button:focus {
+	outline-color: $warning;
+}
+
+.dialog-button--false {
+	background: $danger;
+}
+
+.dialog-button--true {
+	background: $success;
+}
+
+dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.3);
+}
